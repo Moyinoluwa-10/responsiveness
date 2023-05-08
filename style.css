@@ -1,0 +1,286 @@
+/* Styling Page */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+/* header styling */
+.header {
+  background-color: var(--white);
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  border-bottom: 3px solid var(--black);
+}
+
+.logo-container {
+  width: 40px;
+}
+
+.logo-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-check {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  z-index: 3;
+}
+
+.line {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 200px;
+  transition: all 0.5s ease-out;
+}
+
+.line:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  color: #2b2b2b99;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--brown);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scale(0);
+  background-color: var(--brown);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scale(1);
+}
+
+.nav-link.active {
+  color: var(--brown);
+}
+
+/* Styling Company Section */
+.company {
+  background-image: url(./images/abotbg.jpg);
+  background-size: cover;
+  padding: 30px;
+  min-height: 100vh;
+  color: #ffffff;
+  display: flex;
+  place-items: center;
+}
+
+.company h3 {
+  font-size: 1.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+.company h1 {
+  text-transform: uppercase;
+  font-size: 6.875rem;
+  word-wrap: break-word;
+  max-width: 600px;
+}
+
+/* Styling About Us Section */
+.aboutus h5 {
+  width: 139px;
+  letter-spacing: 4px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 79px auto 0;
+}
+
+.aboutus h2 {
+  font-size: 3.75rem;
+  font-weight: 700;
+  width: 750px;
+  margin: 36px auto 0;
+  text-align: center;
+}
+
+.aboutus .services-box {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 20px 20px;
+  margin: 40px 0;
+}
+
+.aboutus .services {
+  color: #ffffff;
+  background-color: #ff5416;
+  border-radius: 20px;
+  padding: 20px 30px 40px;
+  width: 270px;
+}
+
+.aboutus .services h4 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5rem;
+  margin: 24px 0 24px 0;
+  padding: 0;
+}
+
+.aboutus .services li {
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 2;
+  color: #ffffff;
+}
+
+/* footer styling  */
+.footer {
+  background-color: #ff5416;
+  padding: 70px 50px 90px;
+  color: #fff;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1100px;
+}
+
+.footer-copyright {
+  font-size: 13px;
+  margin-top: 50px;
+}
+
+.footer-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 100%;
+    background: #fff;
+    transition: all 0.5s ease-out;
+    z-index: 1;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .nav-check:checked ~ .nav {
+    left: 0;
+  }
+
+  .nav-check:checked ~ .hamburger .line:first-child {
+    transform: translateY(4px) rotate(135deg);
+  }
+
+  .nav-check:checked ~ .hamburger .line:nth-child(2) {
+    display: none;
+  }
+
+  .nav-check:checked ~ .hamburger .line:nth-child(3) {
+    transform: translateY(-4px) rotate(-135deg);
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Styling About Us Section */
+  .aboutus .services-box {
+    flex-wrap: wrap;
+    padding: 20px 30px;
+  }
+
+  .aboutus .services {
+    width: 300px;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .company h1 {
+    font-size: 3rem;
+    max-width: 300px;
+  }
+
+  .company h3 {
+    font-size: 1rem;
+  }
+
+  .aboutus h2 {
+    font-size: 1.875rem;
+    max-width: 300px;
+    margin: 60px auto 70px auto;
+  }
+
+  .footer {
+    padding: 50px 30px 70px;
+  }
+}
